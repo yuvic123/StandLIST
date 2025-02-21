@@ -1,0 +1,5 @@
+return {
+    "HWID123",
+    "HWID456",
+    "HWID789",
+}
