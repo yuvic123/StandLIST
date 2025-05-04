@@ -75,7 +75,7 @@ async def on_message(message):
     existing_ids = list(map(int, re.findall(r'\d+', file_content)))
     id_map = {}
     for line in file_content.splitlines():
-        match = re.match(r'(\d+) -- (.+)', line)
+        match = re.match(r'\s*(\d+)\s*--\s*"(.+)"', line)
         if match:
             id_map[int(match.group(1))] = match.group(2)
 
@@ -138,8 +138,8 @@ async def on_message(message):
         embed = discord.Embed(title=f"🌟 Stand Check for {user_tag}", description=description, color=discord.Color.gold())
         await message.channel.send(embed=embed)
 
-    updated_lines = [f"{uid} -- {id_map[uid]}" for uid in existing_ids]
-    updated_lua_content = "\n".join(updated_lines) + "\nreturn {"
+    updated_lines = [f"  {uid} -- \"{id_map[uid]}\"" for uid in sorted(existing_ids)]
+    updated_lua_content = "return {\n" + "\n".join(updated_lines) + "\n}"
     update_github_file(updated_lua_content, file_data["sha"])
 
 keep_alive()
