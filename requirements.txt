@@ -1,5 +1,0 @@
-discord.py
-requests
-python-dotenv
-keep_alive
-flask
