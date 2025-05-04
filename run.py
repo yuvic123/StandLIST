@@ -138,7 +138,6 @@ async def on_message(message):
         embed = discord.Embed(title=f"🌟 Stand Check for {user_tag}", description=description, color=discord.Color.gold())
         await message.channel.send(embed=embed)
 
-    # Save back to GitHub
     updated_lines = [f"{uid} -- {id_map[uid]}" for uid in existing_ids]
     updated_lua_content = "\n".join(updated_lines) + "\nreturn {"
     update_github_file(updated_lua_content, file_data["sha"])
