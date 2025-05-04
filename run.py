@@ -13,7 +13,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 client = discord.Client(intents=intents)
 
-GITHUB_API_URL = "https://api.github.com/repos/yuvic123/stand_list/contents/stand_list"
+GITHUB_API_URL = "https://api.github.com/repos/yuvic123/StandLIST/contents/LISTSTAND"
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
 
